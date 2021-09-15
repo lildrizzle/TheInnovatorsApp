@@ -1,0 +1,73 @@
+<div  class="desktop">
+  <ion-header mode="ios">
+      <ion-toolbar>
+          <ion-row class="ion-align-items-center">
+              <ion-col size="2">
+              <img src="./assets/icon/newlogo.PNG" class="logo ion-text-left">
+              </ion-col>
+              <ion-col size="10">
+
+                  <div class="navbar" class="ion-text-right">
+                          
+                    <ion-button fill="clear" href= "/home" routerDirection="root" routerLinkActive="active-link" class="link" >Dashboard</ion-button>
+                     
+                      <ion-button fill="clear" href= "/welcome" routerDirection="root" routerLinkActive="active-link" class="link" >Home</ion-button>
+                      
+                      <ion-button fill="clear"  href= "/signup" routerDirection="root" routerLinkActive="active-link" class="link">Sign Up</ion-button>
+                       
+                      <ion-button fill="clear" href= "/login" routerDirection="root" routerLinkActive="active-link" class="link" >Log In</ion-button>
+                    
+                      <ion-button fill="clear" (click)="onLogout()" routerDirection="root" routerLinkActive="active-link" class="link" >Log Out</ion-button>
+                    
+                  </div>
+
+              </ion-col>
+          </ion-row>
+      </ion-toolbar>
+  </ion-header>
+
+<ion-header class="ion-text-center">
+  <ion-toolbar color="primary-contrast">
+    <ion-title>SIGN UP</ion-title>
+  </ion-toolbar>
+</ion-header>
+</div>
+
+<ion-content>
+<div class="center">
+
+  <ion-list>
+    <ion-item transparent>
+      <ion-icon name="person"></ion-icon>
+      <ion-input type="text" value=""placeholder="Name" [(ngModel)]="user.name" required></ion-input>
+      </ion-item>
+
+      <ion-item transparent>
+        <ion-icon name="person"></ion-icon>
+        <ion-input type="text" value=""placeholder="Surname" [(ngModel)]="user.surname" required></ion-input>
+        </ion-item>
+    
+    <ion-item transparent>
+    <ion-icon name="mail"></ion-icon>
+    <ion-input type="text" value=""placeholder="Email Address" [(ngModel)]="user.email" required></ion-input>
+    </ion-item>
+
+    <ion-item transparent>
+      <ion-icon name="lock-closed"></ion-icon>
+      <ion-input type="password" value=""placeholder="Password" [(ngModel)]="user.password" required></ion-input>
+      </ion-item>
+
+  </ion-list>
+
+  <div linespace></div>
+  <ion-button type="submit" size="medium" fill="solid" expand="block" color="tertiary"  (click)="reg(user)" (click)="register(user)">SIGN UP</ion-button>
+  <ion-button type="button" size="medium" fill="outline" expand="block" color="tertiary" href= "/login">LOGIN</ion-button>
+
+  <div linespace></div>
+</div>
+</ion-content>
+<div class="footer">
+    <span>
+        The Innovators App 2021
+    </span>
+</div>

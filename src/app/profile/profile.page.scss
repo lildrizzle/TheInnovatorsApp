@@ -1,0 +1,57 @@
+.desktop{
+    ion-router-outlet{
+        margin-top: 56px;
+        margin-bottom: 56px;
+    }
+    .logo{
+        max-height: 40px;
+    }
+    ion-toolbar{
+        --background: #5260ff;
+    
+    }
+    .link{
+        --color: var(--ion-color-light);
+    }
+    .active-link{
+        --color: var(--ion-color-primary)
+    }
+}
+.footer{
+    width:100%;
+    color: #fff;
+    font-weight: bold;
+    background: #5260ff;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+
+}
+
+ion-select{
+    width:100%;
+
+    justify-content: left;
+}
+
+ion-select::part(placeholder),
+ion-select::part(text) {
+    flex: 0 0 auto;
+}
+
+ion-select::part(placeholder){
+    color: #20a08a;
+    opacity: 1;
+
+}
+ion-select::part(placeholder)::first-letter{
+    font-size: 18px;
+    font-weight: 500;
+
+}
+ion-select::part(icon){
+    color: #971e49;
+    opacity: 1;
+}

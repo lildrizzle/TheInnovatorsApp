@@ -1,0 +1,71 @@
+
+<div  class="desktop">
+  <ion-header mode="ios">
+      <ion-toolbar>
+          <ion-row class="ion-align-items-center">
+              <ion-col size="2">
+              <img src="./assets/icon/newlogo.PNG" class="logo ion-text-left">
+              </ion-col>
+              <ion-col size="10">
+
+                  <div class="navbar" class="ion-text-right">
+                    <ion-button fill="clear" href= "/home" routerDirection="root" routerLinkActive="active-link" class="link" >Dashboard</ion-button>
+                     
+                    <ion-button fill="clear" href= "/welcome" routerDirection="root" routerLinkActive="active-link" class="link" >Home</ion-button>
+                    
+                    <ion-button fill="clear"  href= "/signup" routerDirection="root" routerLinkActive="active-link" class="link">Sign Up</ion-button>
+                     
+                    <ion-button fill="clear" href= "/login" routerDirection="root" routerLinkActive="active-link" class="link" >Log In</ion-button>
+                  
+                    <ion-button fill="clear" (click)="onLogout()" routerDirection="root" routerLinkActive="active-link" class="link" >Log Out</ion-button>
+                  
+                     
+                  </div>
+
+              </ion-col>
+          </ion-row>
+      </ion-toolbar>
+  </ion-header>
+
+<ion-header class="ion-text-center">
+  <!--ion-item  >
+    <ion-icon class="icon" name="reload-outline"  (click)="getChats()"></ion-icon> 
+    <span class="text">REFRESH</span>
+      </ion-item--> 
+  <ion-toolbar color="primary-contrast">
+    <ion-title>MY  PROJECT   RESPONSES</ion-title>
+    
+  </ion-toolbar>
+  
+</ion-header>
+</div>
+<ion-content>
+<ion-button (click)="responses()"></ion-button>
+
+
+<ion-list  *ngFor="let storeUser of storeUsers; let i=index">
+    
+  <ion-item  >
+    <ion-icon name="trash" slot="end" (click)="seek()"></ion-icon> 
+    <ion-label position="stacked" color="tertiary" > user: </ion-label>
+    
+    <ion-textarea  readonly value="{{storeUser.getEmail}}" href="chats"></ion-textarea>
+    
+    </ion-item>
+        
+    <ion-item  >
+  
+      
+
+      </ion-item>
+         
+
+<ion-button type="button" size="medium" fill="solid" expand="block" color="tertiary" (click)=getVal(i,val) (click)="goChat()" >Send Client Private Message</ion-button>
+
+{{i}}
+</ion-list>
+<br>
+              <br>
+              <br>
+              <br>
+</ion-content>

@@ -1,0 +1,95 @@
+/*.message-input {
+    width: 100%;
+    border: 1px solid var(--ion-color-medium);
+    border-radius: 10px;
+    background: #fff;
+    resize: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}*/
+ 
+.message {
+    padding: 10px;
+    border-radius: 10px ;
+    margin-bottom: 4px ;
+    white-space: pre-wrap;
+}
+ 
+.other-message {
+    background: var(--ion-color-tertiary-tint);
+    color: #fff;
+}
+ 
+.my-message {
+    background: var(--ion-color-success);
+    color: #fff;
+}
+
+.time {
+    color: #dfdfdf;
+    float: right;
+    font-size: small;
+}
+.ofset{
+    offset: 3;
+}
+.message-input {
+    width: 100%;
+    border: 1px solid var(--ion-color-medium);
+    border-radius: 10px;
+    background: #fff;
+    resize: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.msg-btn {
+   --padding-start: 0.5em;
+   --padding-end: 0.5em;
+}
+
+.desktop{
+    ion-router-outlet{
+        margin-top: 56px;
+        margin-bottom: 56px;
+    }
+    .logo{
+        max-height: 40px;
+    }
+    ion-toolbar{
+        --background: #5260ff;
+    
+    }
+    .link{
+        --color: var(--ion-color-light);
+    }
+    .active-link{
+        --color: var(--ion-color-primary)
+    }
+}
+.footer{
+    width:100%;
+    color: #fff;
+    font-weight: bold;
+    background: #5260ff;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+
+}
+.scroll{
+    height: 100%
+}
+.icon{
+    display: inline-block;
+    font-size: 35px;
+    color: #5260ff;
+    vertical-align: middle;
+}
+.text{
+    display: inline-block;
+    vertical-align: middle;
+    color: #5260ff;
+    font-size: 10px;
+}

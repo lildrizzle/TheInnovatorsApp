@@ -1,0 +1,97 @@
+<div  class="desktop">
+  <ion-header mode="ios">
+      <ion-toolbar>
+          <ion-row class="ion-align-items-center">
+              <ion-col size="2">
+              <img src="./assets/icon/newlogo.PNG" class="logo ion-text-left">
+              </ion-col>
+              <ion-col size="10">
+
+                  <div class="navbar" class="ion-text-right">
+                    <ion-button fill="clear" href= "/home" routerDirection="root" routerLinkActive="active-link" class="link" >Dashboard</ion-button>
+                     
+                    <ion-button fill="clear" [routerLink]= "['/profile']" routerDirection="root" routerLinkActive="active-link" class="link" >Profile</ion-button>
+                    
+                    <ion-button fill="clear" [routerLink]= "['/users']" routerDirection="root" routerLinkActive="active-link" class="link" >Interests</ion-button>
+                    
+                    <ion-button fill="clear"  href= "/signup" routerDirection="root" routerLinkActive="active-link" class="link">Sign Up</ion-button>
+                     
+                    <ion-button fill="clear" href= "/login" routerDirection="root" routerLinkActive="active-link" class="link" >Log In</ion-button>
+                  
+                    <ion-button fill="clear" (click)="onLogout()" routerDirection="root" routerLinkActive="active-link" class="link" >Log Out</ion-button>
+                  
+                     
+                  </div>
+
+              </ion-col>
+          </ion-row>
+      </ion-toolbar>
+  </ion-header>
+
+<ion-header class="ion-text-center">
+  <ion-toolbar color="primary-contrast">
+    <ion-title> ALL REQUESTS</ion-title>
+  </ion-toolbar>
+</ion-header>
+</div>
+
+<ion-content>
+ 
+  <ion-list  *ngFor="let project of projects; let i=index;">
+    
+    <ion-item  >
+      <ion-label position="stacked" color="tertiary" > project name: </ion-label>
+
+      <ion-textarea  readonly value="{{project.projName}}" ></ion-textarea>
+      </ion-item>
+
+      <ion-item  >
+        <ion-label position="stacked" > company name: </ion-label>
+  
+        <ion-textarea  readonly value="{{project.compName}}" ></ion-textarea>
+        </ion-item>
+  
+        <ion-item  >
+          <ion-label position="stacked" > company description: </ion-label>
+    
+          <ion-textarea  readonly value="{{project.compDes}}" ></ion-textarea>
+          </ion-item>
+      
+          <ion-item  >
+            <ion-label position="stacked" > project description: </ion-label>
+      
+            <ion-textarea  readonly value="{{project.projDes}}" ></ion-textarea>
+            </ion-item>
+            <ion-item  >
+              <ion-label position="stacked" > project delivery date: </ion-label>
+        
+              <ion-textarea  readonly value="{{project.delDate}}" ></ion-textarea>
+              </ion-item>
+              <ion-item  >
+                <ion-label position="stacked" > Uploaded images: </ion-label>
+          
+                <img [src]="project.img_url" onerror="this.onerror=null;this.src='assets/icon/noimage.PNG';" width="300px" height=300px/>
+
+                </ion-item>
+                <br>
+                {{i}}
+<br>
+
+  
+<!--<ion-button type="button" (click)="show()">show</ion-button>
+   <ion-button type="button" (click)="check()">checkout</ion-button>-->
+   
+<ion-button type="button" size="medium" fill="solid" expand="block" color="tertiary" (click)="getVal(i,val)" (click)="getEmail()" (click)="check()" (click)="show()" (click)="store()" (click)="userIns()">Add To Interests</ion-button>
+
+  </ion-list>
+  <br>
+<br>
+<br>
+<br>
+<br>
+</ion-content>
+<div class="footer">
+  <span>
+      The Innovators App 2021
+  </span>
+</div>

@@ -1,0 +1,50 @@
+<div  class="desktop">
+  <ion-header mode="ios">
+      <ion-toolbar>
+          <ion-row class="ion-align-items-center">
+              <ion-col size="2">
+              <img src="./assets/icon/newlogo.PNG" class="logo ion-text-left">
+              </ion-col>
+              <ion-col size="10">
+
+                  <div class="navbar" class="ion-text-right">
+                      <div>
+                    <ion-button fill="clear" href= "/home" routerDirection="root" routerLinkActive="active-link" class="link" >Dashboard</ion-button>
+                    <ion-item [routerLink] = "login">
+                      <ion-icon slot="start" name="arrow-forward"></ion-icon>
+                      <ion-label>menu</ion-label>
+                    </ion-item>
+                      </div>
+                      <ion-button fill="clear" href= "/welcome" routerDirection="root" routerLinkActive="active-link" class="link" >Home</ion-button>
+                      
+                      <ion-button fill="clear"  href= "/signup" routerDirection="root" routerLinkActive="active-link" class="link">Sign Up</ion-button>
+                       
+                      <ion-button fill="clear" href= "/login" routerDirection="root" routerLinkActive="active-link" class="link" >Log In</ion-button>
+                    
+                      
+                      <ion-button fill="clear" (click)="onLogout()" routerDirection="root" routerLinkActive="active-link" class="link" >Log Out</ion-button>
+                    
+                      <ion-button fill="clear" (click)="currentDetails(val)" routerDirection="root" routerLinkActive="active-link" class="link" >Users</ion-button>
+                    
+                  </div>
+
+              </ion-col>
+          </ion-row>
+      </ion-toolbar>
+  </ion-header>
+
+<ion-header class="ion-text-center">
+  <ion-toolbar color="primary-contrast">
+    <ion-title>HOME</ion-title>
+  </ion-toolbar>
+</ion-header>
+</div>
+
+<ion-content>
+<ion-button type="submit" (click)="check()">check</ion-button>
+</ion-content>
+<div class="footer">
+  <span>
+      The Innovators App 2021
+  </span>
+</div>

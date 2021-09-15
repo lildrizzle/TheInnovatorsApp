@@ -1,0 +1,117 @@
+<div  class="desktop">
+  <ion-header mode="ios">
+      <ion-toolbar>
+          <ion-row class="ion-align-items-center">
+              <ion-col size="2">
+              <img src="./assets/icon/newlogo.PNG" class="logo ion-text-left">
+              </ion-col>
+              <ion-col size="10">
+
+                  <div class="navbar" class="ion-text-right">
+                    <ion-button fill="clear" href= "/home" routerDirection="root" routerLinkActive="active-link" class="link" >Dashboard</ion-button>
+                     
+                    <ion-button fill="clear" href= "/welcome" routerDirection="root" routerLinkActive="active-link" class="link" >Home</ion-button>
+                    
+                    <ion-button fill="clear"  href= "/signup" routerDirection="root" routerLinkActive="active-link" class="link">Sign Up</ion-button>
+                     
+                    <ion-button fill="clear" href= "/login" routerDirection="root" routerLinkActive="active-link" class="link" >Log In</ion-button>
+                  
+                    <ion-button fill="clear" (click)="onLogout()" routerDirection="root" routerLinkActive="active-link" class="link" >Log Out</ion-button>
+                  
+                     
+                  </div>
+
+              </ion-col>
+          </ion-row>
+      </ion-toolbar>
+  </ion-header>
+
+<ion-header class="ion-text-center">
+  <ion-toolbar color="primary-contrast">
+    <ion-title> MY PROFILE</ion-title>
+  </ion-toolbar>
+</ion-header>
+</div>
+
+<ion-content>
+ 
+  <ion-list >
+ <div>
+    <ion-item *ngFor="let record of records">
+      <ion-label position="stacked" color="tertiary" >  Name: </ion-label>
+
+      <ion-textarea placeholder="{{record.name}}"  ></ion-textarea>
+      </ion-item>
+
+      <ion-item  *ngFor="let record of records">
+        <ion-label position="stacked" color="tertiary" >  Surname: </ion-label>
+  
+        <ion-textarea  placeholder="{{record.surname}}" ></ion-textarea>
+        </ion-item>
+
+      <ion-item  *ngFor="let record of records">
+        <ion-label position="stacked" > Job Description: </ion-label>
+  
+        <ion-textarea  placeholder="{{record.description}}" [(ngModel)]="pro.description"  ></ion-textarea>
+        </ion-item>
+  
+        <ion-item  *ngFor="let record of records">
+          <ion-label position="stacked" > Location: </ion-label>
+    
+          <ion-textarea  placeholder="{{record.location}}" [(ngModel)]="pro.location" ></ion-textarea>
+          </ion-item>
+      
+          <ion-item  *ngFor="let record of records">
+            <ion-label position="stacked" > Preffered Programming Language: </ion-label>
+            <ion-select placeholder="{{record.devType}}" [(ngModel)]="pro.devType">
+              <ion-select-option value="Java" >
+                Java
+              </ion-select-option>
+              
+             <ion-select-option value="C#" >
+               C#
+             </ion-select-option>
+             <ion-select-option value="Python" >
+              Python
+            </ion-select-option>
+            <ion-select-option value="Other" >
+              Other
+            </ion-select-option>
+            <ion-select-option value="Any" >
+              Any Language
+            </ion-select-option>
+            </ion-select>
+            </ion-item>
+            <ion-item  *ngFor="let record of records">
+              <ion-label position="stacked" > Preffered Apps: </ion-label>
+         <ion-select placeholder="{{record.appType}}" [(ngModel)]="pro.appType">
+           <ion-select-option value="Web/Desktop Apps" >
+             Web/Desktop Apps
+           </ion-select-option>
+           <ion-select-option value="Mobile Apps" >
+            Mobile Apps
+          </ion-select-option>
+          <ion-select-option value="Any" >
+            Any
+          </ion-select-option>
+         </ion-select>
+               </ion-item>
+              
+         
+
+ 
+  
+<ion-button type="button" size="medium" fill="solid" expand="block" color="tertiary" (click)="update1(pro)"(click)="update2(pro)" (click)="update3(pro)" (click)="update4(pro)">Update Profile</ion-button>
+</div>
+  </ion-list>
+  <br>
+<br>
+<br>
+<br>
+<br>
+</ion-content>
+<div class="footer">
+  <span>
+      The Innovators App 2021
+  </span>
+</div>

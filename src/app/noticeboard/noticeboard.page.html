@@ -1,0 +1,98 @@
+<div  class="desktop">
+  <ion-header mode="ios">
+      <ion-toolbar>
+          <ion-row class="ion-align-items-center">
+              <ion-col size="2">
+              <img src="./assets/icon/newlogo.PNG" class="logo ion-text-left">
+              </ion-col>
+              <ion-col size="10">
+
+                  <div class="navbar" class="ion-text-right">
+                    <ion-button fill="clear" href= "/home" routerDirection="root" routerLinkActive="active-link" class="link" >Dashboard</ion-button>
+                     
+                    <ion-button fill="clear" [routerLink]= "['/profile']" class="link" >Profile</ion-button>
+                    
+                    <ion-button fill="clear"  href= "/signup" routerDirection="root" routerLinkActive="active-link" class="link">Sign Up</ion-button>
+                     
+                    <ion-button fill="clear" href= "/login" routerDirection="root" routerLinkActive="active-link" class="link" >Log In</ion-button>
+                  
+                    <ion-button fill="clear" (click)="onLogout()" routerDirection="root" routerLinkActive="active-link" class="link" >Log Out</ion-button>
+                  
+                     
+                  </div>
+
+              </ion-col>
+          </ion-row>
+      </ion-toolbar>
+  </ion-header>
+
+<ion-header class="ion-text-center">
+  <ion-toolbar color="primary-contrast">
+    <ion-title> MAKE PROJECT REQUEST</ion-title>
+  </ion-toolbar>
+</ion-header>
+</div>
+
+<ion-content>
+<div class="center">
+  <div linespace></div>
+    
+      
+    
+    
+  <ion-list>
+    <ion-item>
+    
+      <ion-label position="floating" >project name: </ion-label>
+        
+      <ion-input type="text" value="" [(ngModel)]="info.projName" required></ion-input>
+      </ion-item>
+
+      <ion-item transparent>
+        <ion-label position="floating"> company name: </ion-label>
+        <ion-input type="text" value="" [(ngModel)]="info.compName" required></ion-input>
+        </ion-item>
+    <ion-item>
+        <ion-label position="floating">company description: </ion-label>
+        <ion-textarea type="text" value="" [(ngModel)]="info.compDes" required></ion-textarea>
+      </ion-item>
+
+      <ion-item transparent>
+        <ion-label position="floating" > project description: </ion-label>
+
+        <ion-textarea type="text" value="" [(ngModel)]="info.projDes" required></ion-textarea>
+        </ion-item>
+    
+        <ion-item>
+    
+          <ion-label position="floating">the desired project delivery date: </ion-label>
+            
+          <ion-datetime [(ngModel)]="info.delDate" required></ion-datetime>
+          </ion-item>
+          <ion-item>
+    
+            <ion-label position="floating" >upload supporting image: (optional) </ion-label>
+          <br>
+            <ion-input type = "file" name ="file" (input)="uploadImage($event)" accept=".png,.jpg,.jpeg,.gif"></ion-input>
+<img [src]="downloadableURL" onerror="this.onerror=null;this.src='assets/icon/noimage.PNG';" width="100px" height=100px/>
+{{downloadableURL}}
+            </ion-item>
+
+  </ion-list>
+
+  
+  <div linespace></div>
+   <ion-button type="button" size="medium" fill="solid" expand="block" color="tertiary" (click)="currentDetails(info)" (click)="req(info)">SUBMIT REQUEST</ion-button>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <div linespace></div>
+</div>
+</ion-content>
+<div class="footer">
+  <span>
+      The Innovators App 2021
+  </span>
+</div>
