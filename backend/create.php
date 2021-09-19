@@ -9,9 +9,10 @@ $name = $data["name"];
 $surname = $data["surname"];
 $email = $data["email"];
 $password = $data["password"];
+$role = $data["role"];
 $val1 = "Any";
 $val2 = "Any";
-$q = mysqli_query($con, "INSERT INTO reg (name,surname,email,password) VALUES ('$name', '$surname', '$email','$password')");
+$q = mysqli_query($con, "INSERT INTO reg (name,surname,email,password,role) VALUES ('$name', '$surname', '$email','$password','$role')");
 $q = mysqli_query($con, "INSERT INTO profile (name,surname,email,devType,appType) VALUES ('$name', '$surname', '$email', '$val1', '$val2')");
 
 if($q)

@@ -9,16 +9,15 @@
               <ion-col size="10">
 
                   <div class="navbar" class="ion-text-right">
-                    <ion-button fill="clear" href= "/home" routerDirection="root" routerLinkActive="active-link" class="link" >Dashboard</ion-button>
-                     
-                    <ion-button fill="clear" href= "/welcome" routerDirection="root" routerLinkActive="active-link" class="link" >Home</ion-button>
+                    <ion-button fill="clear" routerLink= "/home" routerDirection="root" routerLinkActive="active-link" class="link" >Home</ion-button>
                     
-                    <ion-button fill="clear"  href= "/signup" routerDirection="root" routerLinkActive="active-link" class="link">Sign Up</ion-button>
-                     
-                    <ion-button fill="clear" href= "/login" routerDirection="root" routerLinkActive="active-link" class="link" >Log In</ion-button>
-                  
-                    <ion-button fill="clear" (click)="onLogout()" routerDirection="root" routerLinkActive="active-link" class="link" >Log Out</ion-button>
-                  
+                    <ion-button fill="clear"  href= "/responses" routerDirection="root" routerLinkActive="active-link" class="link">Responses</ion-button>
+                      
+                      <ion-button fill="clear" [routerLink]="['/display']" routerDirection="root" routerLinkActive="active-link" class="link" >Noticeboard</ion-button>
+                    
+                      <ion-button fill="clear" (click)="onLogout()" routerDirection="root" routerLinkActive="active-link" class="link" >Log Out</ion-button>
+                    
+                    
                      
                   </div>
 

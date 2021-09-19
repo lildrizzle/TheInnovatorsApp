@@ -1,6 +1,7 @@
 import { KeyValuePipe } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 
@@ -11,7 +12,7 @@ export class ApiService {
 headers: HttpHeaders;
 
   constructor(
-    public  http: HttpClient
+    public  http: HttpClient, private afAuth: AngularFireAuth
   ){
     this.headers = new HttpHeaders();
     this.headers.append("Accept", 'application/json');
@@ -20,7 +21,11 @@ headers: HttpHeaders;
     
   }
     
-  
+  resetPassword(email: string){
+    return this.afAuth.sendPasswordResetEmail(email)
+    .then(() => console.log("We have sent you a password reset link to your email!"))
+    .catch(error => console.log(error.message))
+     }
   
   reg(data){
     return this.http.post('http://localhost/TheInnovatorsApp/backend/create.php',data);

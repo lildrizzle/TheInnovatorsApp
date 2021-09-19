@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../api.service';
 import { NavigationExtras, Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-responses',
@@ -11,10 +12,13 @@ import { NavigationExtras, Router } from '@angular/router';
 export class ResponsesPage implements OnInit {
 storeUsers:any;
   nums: any;
-  constructor(private _apiService: ApiService,private cookie: CookieService,private router: Router) { }
+  constructor(private _apiService: ApiService,private cookie: CookieService,private router: Router, private auths: AngularFireAuth) { }
 
   ngOnInit() {
   }
+  onLogout(){
+    this.auths.signOut().then(() => this.router.navigate(['login']));
+    }
   responses()
   {
     let data = {

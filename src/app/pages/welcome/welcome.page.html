@@ -11,13 +11,13 @@
 
                     <div class="navbar" class="ion-text-right">
                           
-                    <ion-button fill="clear" href= "/home" routerDirection="root" routerLinkActive="active-link" class="link" >Dashboard</ion-button>
-                    
-                        <ion-button fill="clear" href= "/welcome" routerDirection="root" routerLinkActive="active-link" class="link" >Home</ion-button>
+                        <ion-button fill="clear" href= "/home" routerDirection="root" routerLinkActive="active-link" class="link" >Home</ion-button>
                       
-                        <ion-button fill="clear"  href= "/signup" routerDirection="root" routerLinkActive="active-link" class="link">Sign Up</ion-button>
+                        <ion-button fill="clear" href= "/welcome" routerDirection="root" routerLinkActive="active-link" class="link" >Welcome</ion-button>
+                      
+                        <ion-button fill="clear"  [routerLink]= "['/signup']" routerDirection="root" routerLinkActive="active-link" class="link">Sign Up</ion-button>
                          
-                        <ion-button fill="clear" href= "/login" routerDirection="root" routerLinkActive="active-link" class="link" >Log In</ion-button>
+                        <ion-button fill="clear" [routerLink]= "['/login']" routerDirection="root" routerLinkActive="active-link" class="link" >Log In</ion-button>
                       
                        
                     </div>
@@ -35,16 +35,29 @@
 </div>
 </div>
 <ion-content class="background" size="12" size-md="10" size-lg="8" size-xl="6">
-    <div >
-        <h3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <u>Who  are  we?</u></h3>
+    <ion-list color="transparent">
+    <ion-label class="ion-text-wrap">
+        <h1>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <u>Who  are  we?</u></h1>
         <div>
-        <h5><p>This is a platform especially designed for clients<br> who are in need for software development services.<br> This Company provides with reliable developers and<br> programmers who are post graduates, undergraduates<br> and cetified practitioners to ensure that you get the best possible service</p></h5>
+        <h2>This is a platform especially designed for clients<br> who are in need for software development services.<br> This Company provides with reliable developers and<br> programmers who are post graduates, undergraduates<br> and cetified practitioners to ensure that you get the best possible service</h2>
         </div>
-    </div>
-    <div >
-        <h3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <u>Services</u></h3>
+    </ion-label>
+    <br>
+    
+    
+    <ion-label linespace >
+        <h1>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <u>Services</u></h1>
         <div>
-        <h5><p> Free! You heard right! We have have services where a<br> developer creates a website or mobile application.<br> We keep tabs on our developers to help them produce <br>satifying results to our clients.</p></h5>
+        <h2> Free! You heard right! We have have services where a<br> developer creates a website or mobile application.<br> We keep tabs on our developers to help them produce <br>satifying results to our clients.</h2>
         </div>
-    </div>
+    </ion-label>
+    <br>
+    
+    <ion-label linespace >
+        <h1>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <u>Next Step</u></h1>
+        <div>
+        <h2>You need to create an account <br> then choose if you seek an app or you develop apps.<br> After Login You can make Project Requests and send messages. <br>Developers can respond to project requests through direct messaging.</h2>
+        </div>
+    </ion-label>
+</ion-list>
 </ion-content>

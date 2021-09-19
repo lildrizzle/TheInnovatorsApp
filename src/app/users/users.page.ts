@@ -23,7 +23,7 @@ export class UsersPage implements OnInit{
   keep: any;
   printUsers:any;
   constructor(public _apiService: ApiService, public apiValue: DataService, public af:AngularFireAuth ,private router: Router
-    ,private cookie: CookieService) {firebase.initializeApp(environment.FIREBASE_CONFIG) }
+    ,private cookie: CookieService) { }
 
   
 
@@ -34,7 +34,9 @@ export class UsersPage implements OnInit{
   
 }
  
- 
+onLogout(){
+  this.af.signOut().then(() => this.router.navigate(['login']));
+  }
   delete(){
     this._apiService.deleteUser().subscribe((res:any) => {
       console.log("duplicates deleted");

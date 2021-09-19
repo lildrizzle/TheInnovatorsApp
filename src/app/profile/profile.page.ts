@@ -8,6 +8,7 @@ import 'firebase/auth';
 import { Pro } from '../model/pro.mode';
 import { ToastController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -19,39 +20,32 @@ import { environment } from 'src/environments/environment';
 export class ProfilePage implements OnInit {
   
   records: any = [];
-  keep: any;
+  
   pro ={} as Pro
   test:any;
-  constructor( public _apiService:ApiService, public rout: Router, public af: AngularFireAuth ,private toast: ToastController, public ar: ActivatedRoute) {}
+  constructor(private cookie: CookieService, public _apiService:ApiService, public rout: Router, public af: AngularFireAuth ,private toast: ToastController, public ar: ActivatedRoute) {}
 
   
-  getEmail(){
-    const user = firebase.auth().currentUser;
   
-     let value = user.email;
-     this.keep = value;
-     console.log('email is :   ', this.keep, "what:  " + this.af.currentUser);
-     
-  }
   ngOnInit(){
     this.pro.description="";
     this.pro.appType="";
     this.pro.devType="";
     this.pro.location="";
-this.ss();
-    this.getEmail();
+this.getPro();
+    
   }
-  ss(){firebase.initializeApp(environment.FIREBASE_CONFIG)}
+  
   getPro()
   {
     let data = {
       
-      email: this.keep,
+      email: this.cookie.get("sessionEmail"),
     }
     this._apiService.getProfile(data).subscribe((res:any) => {
      console.log("profile SUCCESS ===", res);
    this.records = res;
-   alert('SUCCESS');
+   console.log('SUCCESS');
    
    },(error: any) => {
    
@@ -64,7 +58,7 @@ this.ss();
       
     description: this.pro.description,
     
-    email: this.keep,
+    email: this.cookie.get("sessionEmail"),
   }
     if(this.pro.description != "")
     {
@@ -90,7 +84,7 @@ this.ss();
       
     location: this.pro.location,
     
-    email: this.keep,
+    email: this.cookie.get("sessionEmail"),
   }
     if(this.pro.location != "")
     {
@@ -117,7 +111,7 @@ this.ss();
       
     devType: this.pro.devType,
     
-    email: this.keep,
+    email: this.cookie.get("sessionEmail"),
   }
     if(this.pro.devType != "" )
     {
@@ -152,7 +146,7 @@ this.ss();
       
     appType: this.pro.appType,
     
-    email: this.keep,
+    email: this.cookie.get("sessionEmail"),
   }
     if(this.pro.appType != "")
     {
@@ -184,7 +178,7 @@ this.ss();
       location: this.pro.location,
       devType: this.pro.devType,
       appType: this.pro.appType,
-      email: this.keep,
+      email: this.cookie.get("sessionEmail"),
 
     }
     if(this.pro.description == "" || this.pro.location == "" || this.pro.appType == "" || this.pro.devType == "" )

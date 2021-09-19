@@ -29,18 +29,4 @@
     bottom: 0px;
 
 }
-ion-content.background{
-    
-    --background: url('/assets/icon/nlogo.PNG') no-repeat right center fixed;
-   
-    background-size: cover;
-}
-ion-content.resizer{
-    font-size: clamp(15rem , 80vw ,80vh);
-}
-ion-list{
-    background: transparent !important;
-}
-ion-item{
-    background: transparent !important;
-}
+

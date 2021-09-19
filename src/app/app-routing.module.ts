@@ -7,7 +7,10 @@ import {AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo} from "
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
 const routes: Routes = [
- 
+  {
+    path: '',
+    loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)
+  },
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),canActivate: [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin},                        
@@ -67,6 +70,22 @@ const routes: Routes = [
   {
     path: 'chats',
     loadChildren: () => import('./chats/chats.module').then( m => m.ChatsPageModule)
+  },
+  {
+    path: 'reset-password',
+    loadChildren: () => import('./reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
+  },
+  {
+    path: 'how-it-works',
+    loadChildren: () => import('./how-it-works/how-it-works.module').then( m => m.HowItWorksPageModule)
+  },
+  {
+    path: 'logout',
+    loadChildren: () => import('./logout/logout.module').then( m => m.LogoutPageModule)
+  },
+  {
+    path: 'get-started',
+    loadChildren: () => import('./get-started/get-started.module').then( m => m.GetStartedPageModule)
   },
   
 

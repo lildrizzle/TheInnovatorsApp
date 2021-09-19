@@ -118,7 +118,9 @@ userIns(){
       
   
 }
-  
+onLogout(){
+  this.af.signOut().then(() => this.rout.navigate(['login']));
+  }
   getReg()
   {
     this._apiService.getReg().subscribe((res:any) => {

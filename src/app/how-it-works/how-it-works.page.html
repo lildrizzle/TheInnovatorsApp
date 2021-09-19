@@ -23,57 +23,39 @@
       </ion-toolbar>
   </ion-header>
 
+
 <ion-header class="ion-text-center">
   <ion-toolbar color="primary-contrast">
-    <ion-title>LOG IN</ion-title>
+    <ion-title>HOW IT WORKS</ion-title>
   </ion-toolbar>
 </ion-header>
 </div>
+<ion-content>
+  <ion-list>
+  <ion-item  >
+    <ion-label position="stacked" > Step 1: </ion-label>
 
- <ion-content > 
- <div linespace ></div> 
+    <ion-textarea  readonly value="Create an account: On the Navigation Bar at the top, click Sign Up" ></ion-textarea>
+    </ion-item>
+    <ion-item  >
+      <ion-label position="stacked" > Step 2: </ion-label>
   
-<div linespace ></div> 
- 
- <div linespace></div> 
-
- <div linespace></div>  
- <div  linespace></div> 
-<div class="center "> 
-  <ion-list><ion-item transparent> 
-  <ion-icon name="person"></ion-icon>  
-  <ion-input type ="email" placeholder ="Username"  [(ngModel)] = "user.email" required ></ion-input>  
-  </ion-item > 
- <ion-item transparent> 
- 
-
- <ion-icon name= "lock-closed"></ion-icon> 
-  
- <ion-input type = "password" placeholder = "Password" [(ngModel)] = "user.password" required></ion-input> 
- 
- </ion-item> 
-  
- </ion-list> 
-
-  <a routerLink= "/reset-password" >Forgot password? </a> 
-
- <div linespace></div>  
- <ion-button type="submit" size= "medium"  fill= "solid" expand="block" color= "tertiary" (click) ="login(user)" >LOGIN </ion-button > 
- 
-
-  <ion-label style = "text-align:center ;">Don't have account:<a class="link-b" href= "/signup"> Sign up</a></ion-label> 
- <div linespace ></div> 
- 
- <div linespace></div> 
- 
- <ion-label style = "text-align:center ;"><a href = "/how-it-works"  class= "alink">How it works?</a> 
- 
- </ion-label> 
-
- </div>
- </ion-content>
- <div class="footer">
-  <span>
-      The Innovators App 2021
-  </span>
-</div>
+      <ion-textarea  readonly value="Fill all Sign Up details and choose Your Position or Role: App Developer or App Client" ></ion-textarea>
+      </ion-item>
+      <ion-item  >
+        <ion-label position="stacked" > Step 3: </ion-label>
+    
+        <ion-textarea  readonly value="Verify Email Address: You will get an alert message to go check your email for verification link" ></ion-textarea>
+        </ion-item>
+        <ion-item  >
+          <ion-label position="stacked" > Step 4: </ion-label>
+      
+          <ion-textarea  readonly value="After Email Verification, Click Login button on Navigation Bar" ></ion-textarea>
+          </ion-item>
+          <ion-item  >
+            <ion-label position="stacked" > Step 5: </ion-label>
+        
+            <ion-textarea  readonly value="Use your details to Login. When Successful You will be taken to the Home Page" ></ion-textarea>
+            </ion-item>
+</ion-list>
+</ion-content>

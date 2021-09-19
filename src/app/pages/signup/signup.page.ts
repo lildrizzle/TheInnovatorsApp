@@ -34,6 +34,7 @@ val = true;
       surname: this.user.surname,
       email: this.user.email,
       password: this.user.password,
+      role: this.user.role,
   }
 if(this.user.name == "" || this.user.surname == "")
 {alert('Please Enter Name with Surname');
@@ -41,6 +42,7 @@ this.user.name = '';
 this.user.surname = '';
 this.user.email = '';
 this.user.password = '';
+this.user.role= '';
 this.val = false;
 }
 else{
