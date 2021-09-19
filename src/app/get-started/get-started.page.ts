@@ -8,7 +8,7 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './get-started.page.html',
   styleUrls: ['./get-started.page.scss'],
 })
-export class HomePage implements OnInit {
+export class GetStartedPage implements OnInit {
   
   val: any;
   constructor( private auth:AngularFireAuth,
