@@ -17,6 +17,9 @@ import{ AngularFireStorageModule } from '@angular/fire/storage';
 import{ AngularFirestoreModule } from '@angular/fire/firestore';
 import { DataService } from './data.service';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthGuard } from './auth.guard';
+import { PermitGuard } from './permit.guard';
+import { ChildGuard } from './child.guard';
 
 
 
@@ -29,7 +32,7 @@ import { CookieService } from 'ngx-cookie-service';
     AngularFireAuthModule,
   AngularFireStorageModule,
 AngularFirestoreModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, {provide: AngularFireAuthGuard},{provide: DataService},{provide: CookieService}],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, {provide: AngularFireAuthGuard},{provide: DataService},{provide: CookieService},{provide: AuthGuard},{provide: PermitGuard},{provide:ChildGuard}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

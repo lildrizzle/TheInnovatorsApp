@@ -16,9 +16,9 @@
                                             
                       <ion-button fill="clear"  href= "/responses" routerDirection="root" routerLinkActive="active-link" class="link">Responses</ion-button>
                        
-                      <ion-button fill="clear" href= "/display" routerDirection="root" routerLinkActive="active-link" class="link" >Noticeboard</ion-button>
+                      <ion-button fill="clear" href= "/noticeboard" routerDirection="root" routerLinkActive="active-link" class="link" >Noticeboard</ion-button>
                     
-                      <ion-button fill="clear" [routerLink]="['/users']" routerDirection="root" routerLinkActive="active-link" class="link" >Interests</ion-button>
+                      <ion-button fill="clear" [routerLink]="['/profile']" routerDirection="root" routerLinkActive="active-link" class="link" >Profile</ion-button>
                     
                       <ion-button fill="clear" (click)="onLogout()" routerDirection="root" routerLinkActive="active-link" class="link" >Log Out</ion-button>
                     
@@ -48,13 +48,13 @@
       <ion-item  >
         <ion-label position="stacked" > Noiceboard Tab: </ion-label>
     
-        <ion-textarea  readonly value="Displays the information from the noticeboard with projects requested by clients." ></ion-textarea>
+        <ion-textarea  readonly value="Allows clients to make a project/app request by providing neccesary details." ></ion-textarea>
         </ion-item>
 
         <ion-item  >
-          <ion-label position="stacked" > Interests Tab: </ion-label>
+          <ion-label position="stacked" >Profile  Tab: </ion-label>
       
-          <ion-textarea  readonly value="Shows all Interests that you selected from the noticeboard.You can directly message clients from here aswell." ></ion-textarea>
+          <ion-textarea  readonly value="The clients can update their personal information here." ></ion-textarea>
           </ion-item>
         
   </ion-list>

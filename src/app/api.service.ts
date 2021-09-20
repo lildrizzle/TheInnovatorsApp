@@ -66,6 +66,9 @@ update4(data){
   getUser(data){
     return this.http.post('http://localhost/TheInnovatorsApp/backend/getUser.php', data);
   }
+  guards(data){
+    return this.http.post('http://localhost/TheInnovatorsApp/backend/guard.php', data);
+  }
   getProfile(data){
     return this.http.post('http://localhost/TheInnovatorsApp/backend/getProfile.php', data);
   }

@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import {AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo} from "@angular/fire/auth-guard";
+import { AuthGuard } from './auth.guard';
+import { PermitGuard } from './permit.guard';
+import { ChildGuard } from './child.guard';
 
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
@@ -13,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),canActivate: [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin},                        
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),canActivate: [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin} , canActivateChild:[ChildGuard]              
   },
   {
     path: 'signup',
@@ -37,7 +40,7 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule), canActivate:[PermitGuard],
   },
   {
     path: 'request',
@@ -45,7 +48,7 @@ const routes: Routes = [
   },
   {
     path: 'getstart',
-    loadChildren: () => import('./getstart/getstart.module').then( m => m.GetstartPageModule)
+    loadChildren: () => import('./getstart/getstart.module').then( m => m.GetstartPageModule),canActivate:[PermitGuard]
   },
   {
     path: 'display',
@@ -61,7 +64,7 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
+    loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule),canActivate: [AuthGuard]
   },
   {
     path: 'responses',

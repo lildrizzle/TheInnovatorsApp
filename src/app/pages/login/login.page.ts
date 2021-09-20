@@ -7,6 +7,7 @@ import { Component , OnInit } from  '@angular/core' ;
 
  import{ async } from '@angular/core/testing' ; 
 import { CookieService } from 'ngx-cookie-service';
+import { ApiService } from 'src/app/api.service';
 //import { AngularFireModule } from '@angular/fire';
 
 
@@ -24,7 +25,7 @@ import { CookieService } from 'ngx-cookie-service';
   
   emailVer = true ; 
 val = true;  
-  constructor ( private rout: Router,
+  constructor (private _apiService: ApiService, private rout: Router,
     
      private toast : ToastController ,
      
@@ -66,7 +67,8 @@ this.showToast("Verify your email address" );
 } 
  else {
 this.cookie.set("sessionEmail",this.user.email);
- this.rout.navigate(['noticeboard']); 
+
+ 
 
  }
  }catch(e){ 
@@ -114,7 +116,35 @@ reload(){
     
   
    } 
+routeG(){
+  let data = {
+  email: this.user.email,
 
+  
+  }
+  this._apiService.guards(data).subscribe((res: any) => {
+    console.log("guard success ===",res);
+    this.cookie.set("valid", res[0].role)
+
+    
+    if(res[0].role = "Developer"){
+      
+ this.rout.navigate(['home']); }
+else if(res[0].role = "Client"){
+  this.rout.navigate(['get-started']); 
+
+}
+  else{
+    alert("something went wrong")
+  }  
+  }
+  
+  ,(error: any) => {
+    alert('Ensure details are accurate or Email already exists');
+    console.log("ERROR ===", error);
+
+      })
+}
  
  validation(){ 
    if(!this.user.email)
