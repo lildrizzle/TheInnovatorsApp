@@ -9,7 +9,7 @@ import {DisplayPage  } from '../display/display.page';
 import { Injectable } from '@angular/core';
 import { DataService } from '../data.service';
 import { CookieService } from 'ngx-cookie-service';
-import { DOCUMENT} from '@angular/common';
+import { DOCUMENT, Location} from '@angular/common';
 import { interval, Observable } from 'rxjs';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -45,7 +45,7 @@ users$: Observable<Array< {}>>
   @ViewChild(IonContent) content: IonContent
 
 
-    constructor(private af: AngularFireAuth ,private rout: Router,private toast : ToastController,  private cookie: CookieService,  public _apiService:ApiService, public apiValue: DataService, private route: ActivatedRoute, private router: Router) {
+    constructor(private location: Location,private af: AngularFireAuth ,private rout: Router,private toast : ToastController,  private cookie: CookieService,  public _apiService:ApiService, public apiValue: DataService, private route: ActivatedRoute, private router: Router) {
     
 this.route.queryParams.subscribe(params => {
   this.values = params;
@@ -63,20 +63,18 @@ if (params && params.special){
     this.getChats();
     
   }
+  goBack(){
+    this.location.back();
+  }
   onLogout(){
+    if(confirm("Are you sure about Logging Out?")){
+   
+
     this.cookie.deleteAll();
     this.af.signOut().then(() => this.rout.navigate(['login']));
+  }
     }
- /* sendMessage(){
-this.messages.push({
-  user: 'Agri ceo',
-  createdAt: new Date().getTime(),
-  msg: this.newMsg
-});
-this.newMsg = '';
-setTimeout(() =>{this.content.scrollToBottom(200);})
 
-  }*/
 seek(){
   let v = this.apiValue.getValue();
   console.log(v);

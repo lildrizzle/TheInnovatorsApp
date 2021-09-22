@@ -35,26 +35,21 @@ export class UsersPage implements OnInit{
   
   
 }
-reload(){
-  this.router.navigate(['users'])
-}
+
   method(){ 
    
    this.getRecord().then(() => { this.delRec()
   
   }
   
-  ).finally(() => {this.reload()});
+  );
   
   
  
 
 }
-reloadComponent(){
-  this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-  this.router.onSameUrlNavigation = 'reload';
-  this.router.navigate(['/users'])
-}
+
+
  getRecord(){
    
   let data = {
@@ -110,18 +105,9 @@ onLogout(){
     console.log("ERROR");
       })
     }
-  seek(){
-    let v = this.apiValue.getValue();
-    console.log(v);
-  }
-  getEmail(){
-    const user = firebase.auth().currentUser;
-    
-     let value = user.email;
-     this.keep = value;
-     console.log('email is :   ', this.keep, "what:  " + this.af.currentUser);
-     
-  }
+  
+  
+  
   
   getUsers()
   {
@@ -142,37 +128,8 @@ onLogout(){
    }
   
   
-    
-  /*Row()
-  /{
-    let data = { 
-      rowCol: this.apiValue.getValue(),
-    }
-      
   
- 
-   this._apiService.getRow(data).subscribe((res:any) => {
-   console.log(" row runs SUCCESSFUL ===", res);
-   this.shows = res;
-   
   
-   alert('row run SUCCESSes');
-   console.log("row runs SUCCESSES ===", this.shows);
-   
-   },(error: any) => {
-   
-   console.log("ERROR ===", error);
-   console.log();
-   
-     })
-
-   }*/
-  call(){
-    console.log(this.shows[0].curEmail);
-  }
-  calls(){
-    //console.log(this.apiValue.getVv());
-  }
   goChat(index){
     let navigatationExtras: NavigationExtras ={
       queryParams:{

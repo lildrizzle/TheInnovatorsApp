@@ -38,27 +38,23 @@
   <ion-list  *ngFor="let printUser of printUsers; let i=index">
     
     <ion-item  >
-      <ion-icon name="trash" slot="end" (click)="getVal(i,val)" (click)="method()" ></ion-icon> 
+      <ion-icon name="trash" slot="end" (click)="getVal(i)" (click)="method()" ></ion-icon> 
     
       <ion-label position="stacked" color="tertiary" > Client: </ion-label>
       
-      <ion-textarea  readonly value="Project Name: {{printUser.proName}}"  (click)=getVal(i,val) (click)="goChat()"></ion-textarea>
+      <ion-textarea  readonly value="Project Name: {{printUser.proName}}"  (click)=getVal(i) (click)="goChat()"></ion-textarea>
       
-      <ion-textarea  readonly value="Company Name: {{printUser.coName}}" ></ion-textarea>
+      <ion-textarea  readonly value="Company Name: {{printUser.coName}}" (click)=getVal(i) (click)="goChat()"></ion-textarea>
       
       </ion-item>
           
-      <ion-item  >
-    
-        
-
-        </ion-item>
-           
+  
 
 <!--ion-button type="button" size="medium" fill="solid" expand="block" color="tertiary" (click)=getVal(i,val) (click)="goChat()" >Send Client Private Message</ion-button>
 
 {{i}}-->
   </ion-list>
+  <br>
   <br>
                 <br>
                 <br>

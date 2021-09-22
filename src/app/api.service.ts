@@ -69,6 +69,9 @@ update4(data){
   getRec(data){
     return this.http.post('http://localhost/TheInnovatorsApp/backend/getRec.php', data);
   }
+  getResRec(data){
+    return this.http.post('http://localhost/TheInnovatorsApp/backend/getResRec.php', data);
+  }
   guards(data){
     return this.http.post('http://localhost/TheInnovatorsApp/backend/guard.php', data);
   }
@@ -79,10 +82,7 @@ update4(data){
     return this.http.post('http://localhost/TheInnovatorsApp/backend/getRow.php', data);
    
   }
-  getLine(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/getLine.php', data);
-   
-  }
+  
   getChat(data){
     return this.http.post('http://localhost/TheInnovatorsApp/backend/getChat.php', data);
    
@@ -95,20 +95,15 @@ update4(data){
     return this.http.post('http://localhost/TheInnovatorsApp/backend/viewChat.php', data);
    
   }
-  deleteStudent(id){
-    return this.http.delete('http://localhost/backend/delete.php?id='+id);
-  }
-  getStudent(id){
-    return this.http.get('http://localhost/projects/php-crud/backend/getSingleStudent.php?id='+id);
-  }
-  updateStudent(id, data){
-    return this.http.put('http://localhost/backend/updateStudent.php?id='+id,data);
-  }
+  
   deleteUser(){
     return this.http.delete('http://localhost/TheInnovatorsApp/backend/deleteUser.php');
   }
   deleteRecord(data){
     return this.http.post('http://localhost/TheInnovatorsApp/backend/deleteRec.php',data);
+  }
+  deleteResRecord(data){
+    return this.http.post('http://localhost/TheInnovatorsApp/backend/delResRec.php',data);
   }
   responseView(data){
     return this.http.post('http://localhost/TheInnovatorsApp/backend/response.php', data);

@@ -30,49 +30,37 @@ const routes: Routes = [
     path: 'welcome',
     loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)
   },
-  {
-    path: 'logout',
-    loadChildren: () => import('./pages/logout/logout.module').then( m => m.LogoutPageModule)
-  },
+ 
   {
     path: 'noticeboard',
-    loadChildren: () => import('./noticeboard/noticeboard.module').then( m => m.NoticeboardPageModule)
+    loadChildren: () => import('./noticeboard/noticeboard.module').then( m => m.NoticeboardPageModule),canActivate: [AngularFireAuthGuard,PermitGuard], data: {authGuardPipe: redirectUnauthorizedToLogin}
   },
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule), canActivate:[PermitGuard],
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule),canActivate: [AngularFireAuthGuard, PermitGuard], data: {authGuardPipe: redirectUnauthorizedToLogin}
   },
-  {
-    path: 'request',
-    loadChildren: () => import('./request/request.module').then( m => m.RequestPageModule)
-  },
-  {
-    path: 'getstart',
-    loadChildren: () => import('./getstart/getstart.module').then( m => m.GetstartPageModule),canActivate:[PermitGuard]
-  },
+  
+  
   {
     path: 'display',
-    loadChildren: () => import('./display/display.module').then( m => m.DisplayPageModule)
+    loadChildren: () => import('./display/display.module').then( m => m.DisplayPageModule),canActivate: [AngularFireAuthGuard, AuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin}
   },
-  {
-    path: 'front',
-    loadChildren: () => import('./front/front.module').then( m => m.FrontPageModule)
-  },
+  
   {
     path: 'chat',
-    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule),canActivate: [AngularFireAuthGuard, AuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin}
   },
   {
     path: 'users',
-    loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule),canActivate: [AuthGuard]
+    loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule),canActivate: [AngularFireAuthGuard, AuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin}
   },
   {
     path: 'responses',
-    loadChildren: () => import('./responses/responses.module').then( m => m.ResponsesPageModule)
+    loadChildren: () => import('./responses/responses.module').then( m => m.ResponsesPageModule),canActivate: [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin}
   },
   {
     path: 'chats',
-    loadChildren: () => import('./chats/chats.module').then( m => m.ChatsPageModule)
+    loadChildren: () => import('./chats/chats.module').then( m => m.ChatsPageModule),canActivate: [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin}
   },
   {
     path: 'reset-password',
@@ -82,13 +70,10 @@ const routes: Routes = [
     path: 'how-it-works',
     loadChildren: () => import('./how-it-works/how-it-works.module').then( m => m.HowItWorksPageModule)
   },
-  {
-    path: 'logout',
-    loadChildren: () => import('./logout/logout.module').then( m => m.LogoutPageModule)
-  },
+  
   {
     path: 'get-started',
-    loadChildren: () => import('./get-started/get-started.module').then( m => m.GetStartedPageModule),canActivate:[PermitGuard]
+    loadChildren: () => import('./get-started/get-started.module').then( m => m.GetStartedPageModule),canActivate: [AngularFireAuthGuard, PermitGuard], data: {authGuardPipe: redirectUnauthorizedToLogin}
   },
   
 

@@ -19,16 +19,14 @@
               <ion-col size="10">
 
                   <div class="navbar" class="ion-text-right">
-                    <ion-button fill="clear" href= "/home" routerDirection="root" routerLinkActive="active-link" class="link" >Dashboard</ion-button>
-                     
-                    <ion-button fill="clear" href= "/welcome" routerDirection="root" routerLinkActive="active-link" class="link" >Home</ion-button>
                     
-                    <ion-button fill="clear"  href= "/signup" routerDirection="root" routerLinkActive="active-link" class="link">Sign Up</ion-button>
-                     
-                    <ion-button fill="clear" href= "/login" routerDirection="root" routerLinkActive="active-link" class="link" >Log In</ion-button>
+                   
                   
-                    <ion-button fill="clear" (click)="onLogout()" routerDirection="root" routerLinkActive="active-link" class="link" >Log Out</ion-button>
-                  
+                    
+                    <ion-button (click)="onLogout()" >
+                      <ion-icon name="log-out" slot="end"></ion-icon>
+                      
+                    </ion-button>
                      
                   </div>
 
@@ -41,7 +39,10 @@
   <ion-item  >
     <ion-icon class="icon" name="reload-outline"  (click)="getChats()"></ion-icon> 
     <span class="text">REFRESH</span>
+    <ion-icon class="icon" slot="end" name="ARROW-BACK"  (click)="goBack()"></ion-icon>
+    <span slot="end" class="text" (click)="goBack()">GO BACK</span> 
       </ion-item> 
+      
   <!--ion-toolbar color="primary-contrast">
     ion-title> MESSAGES</ion-title>
     

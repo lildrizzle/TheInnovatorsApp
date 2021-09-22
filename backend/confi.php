@@ -8,4 +8,6 @@ header('Content-Length: 0');
 header('Content-Type: text/plain');
 
 $con = mysqli_connect("localhost", "root", "", "theinnovatorsapp") or die("could not connect DB");
+$conn = mysqli_connect("localhost", "root", "", "theinnovatorsapp") or die("could not connect DB");
+
 ?>

@@ -14,7 +14,7 @@ $dates = $data["dates"];
 
 $q = mysqli_query($con, "INSERT INTO chat  (`time`,`date`,fromEmail,message, toEmail) 
 SELECT '$times','$dates','$myEmail','$mess',theirEmail from interests where 
-theirEmail = (SELECT theirEmail FROM (SELECT theirEmail,row_number() over() as rownum from interests where myEmail = '$myEmail')
+theirEmail = (SELECT theirEmail FROM (SELECT theirEmail,row_number() over() as rownum from interests where myEmail = '$myEmail' order by id)
  as sub where rownum = '$rowCol')");
 
 if($q)
