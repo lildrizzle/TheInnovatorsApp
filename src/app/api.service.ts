@@ -66,6 +66,9 @@ update4(data){
   getUser(data){
     return this.http.post('http://localhost/TheInnovatorsApp/backend/getUser.php', data);
   }
+  getRec(data){
+    return this.http.post('http://localhost/TheInnovatorsApp/backend/getRec.php', data);
+  }
   guards(data){
     return this.http.post('http://localhost/TheInnovatorsApp/backend/guard.php', data);
   }
@@ -103,6 +106,9 @@ update4(data){
   }
   deleteUser(){
     return this.http.delete('http://localhost/TheInnovatorsApp/backend/deleteUser.php');
+  }
+  deleteRecord(data){
+    return this.http.post('http://localhost/TheInnovatorsApp/backend/deleteRec.php',data);
   }
   responseView(data){
     return this.http.post('http://localhost/TheInnovatorsApp/backend/response.php', data);

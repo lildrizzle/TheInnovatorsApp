@@ -4,10 +4,10 @@ include "confi.php";
 $input = file_get_contents('php://input');
 $data = json_decode($input,true);
 $message = array();
-$email = $data["email"];
+$rowCol = $data["rowCol"];
 $datas = array();
 
-$q = mysqli_query($con, "SELECT theirEmail,proName,coName FROM interests WHERE myEmail = '$email'");
+$q = mysqli_query($con, "SELECT * FROM (SELECT id,row_number() over() as rownum from interests order by theirEmail) as sub where rownum = '$rowCol'");
 
 while($row = mysqli_fetch_object($q))
 {
@@ -18,7 +18,3 @@ echo mysqli_error($con);
 
 
 ?>
-
-
-
-

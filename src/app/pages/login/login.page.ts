@@ -20,7 +20,7 @@ import { ApiService } from 'src/app/api.service';
 
  
  export class LoginPage implements OnInit{ 
- 
+ store: any;
   user={} as User;
   
   emailVer = true ; 
@@ -66,9 +66,20 @@ this.showToast("Verify your email address" );
  
 } 
  else {
+  this.cookie.set("sessionEmail","");
 this.cookie.set("sessionEmail",this.user.email);
+this.cookie.set("valid", this.store[0].role);
 
+if(this.store[0].role === "Developer"){
+      
+  this.rout.navigate(['home']); 
+}
+
+  if(this.store[0].role === "Client"){
+   this.rout.navigate(['get-started']); 
  
+ }
+  
 
  }
  }catch(e){ 
@@ -124,19 +135,10 @@ routeG(){
   }
   this._apiService.guards(data).subscribe((res: any) => {
     console.log("guard success ===",res);
-    this.cookie.set("valid", res[0].role)
-
+    this.store= res;
     
-    if(res[0].role = "Developer"){
-      
- this.rout.navigate(['home']); }
-else if(res[0].role = "Client"){
-  this.rout.navigate(['get-started']); 
-
-}
-  else{
-    alert("something went wrong")
-  }  
+    
+  
   }
   
   ,(error: any) => {

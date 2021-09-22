@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),canActivate: [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin} , canActivateChild:[ChildGuard]              
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),canActivate: [AngularFireAuthGuard , AuthGuard], data: {authGuardPipe: redirectUnauthorizedToLogin}              
   },
   {
     path: 'signup',
@@ -88,7 +88,7 @@ const routes: Routes = [
   },
   {
     path: 'get-started',
-    loadChildren: () => import('./get-started/get-started.module').then( m => m.GetStartedPageModule)
+    loadChildren: () => import('./get-started/get-started.module').then( m => m.GetStartedPageModule),canActivate:[PermitGuard]
   },
   
 

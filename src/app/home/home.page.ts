@@ -25,6 +25,7 @@ export class HomePage implements OnInit {
   }
   
   onLogout(){
+    this.cookie.deleteAll();
     this.auth.signOut().then(() => this.router.navigate(['login']));
     }
   

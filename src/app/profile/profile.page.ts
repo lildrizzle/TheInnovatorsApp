@@ -35,7 +35,10 @@ export class ProfilePage implements OnInit {
 this.getPro();
     
   }
-  
+  onLogout(){
+    this.cookie.deleteAll();
+    this.af.signOut().then(() => this.rout.navigate(['login']));
+    }
   getPro()
   {
     let data = {

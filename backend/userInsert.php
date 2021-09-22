@@ -11,7 +11,7 @@ $myEmail = $data["myEmail"];
 
 
 
-$q = mysqli_query($con, "INSERT IGNORE INTO interests (myEmail, theirEmail) SELECT '$myEmail',curEmail from req where curEmail = (SELECT curEmail FROM (SELECT reqNum,curEmail,row_number() over() as rownum from req) as sub where rownum = '$rowCol')");
+$q = mysqli_query($con, "INSERT IGNORE INTO interests (myEmail,proName,coName, theirEmail) SELECT '$myEmail',projName,compName,curEmail from req where curEmail = (SELECT curEmail FROM (SELECT reqNum,curEmail,row_number() over() as rownum from req) as sub where rownum = '$rowCol')");
 
 if($q)
 {

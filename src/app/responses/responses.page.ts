@@ -12,12 +12,24 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class ResponsesPage implements OnInit {
 storeUsers:any;
   nums: any;
+  name: any= this.cookie.get("valid");
   constructor(private _apiService: ApiService,private cookie: CookieService,private router: Router, private auths: AngularFireAuth) { }
 
   ngOnInit() {
+    this.responses();
   }
   onLogout(){
+    this.cookie.deleteAll();
     this.auths.signOut().then(() => this.router.navigate(['login']));
+    }
+    checkUser(){
+      if(this.name === "Client")
+      {
+        this.router.navigate(['get-started']);
+      }
+      else{
+        this.router.navigate(['home']);
+      }
     }
   responses()
   {

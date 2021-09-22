@@ -12,6 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { DOCUMENT} from '@angular/common';
 import { interval, Observable } from 'rxjs';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-chat',
@@ -44,7 +45,7 @@ users$: Observable<Array< {}>>
   @ViewChild(IonContent) content: IonContent
 
 
-    constructor(private toast : ToastController,  private cookie: CookieService,  public _apiService:ApiService, public apiValue: DataService, private route: ActivatedRoute, private router: Router) {
+    constructor(private af: AngularFireAuth ,private rout: Router,private toast : ToastController,  private cookie: CookieService,  public _apiService:ApiService, public apiValue: DataService, private route: ActivatedRoute, private router: Router) {
     
 this.route.queryParams.subscribe(params => {
   this.values = params;
@@ -62,7 +63,10 @@ if (params && params.special){
     this.getChats();
     
   }
-  
+  onLogout(){
+    this.cookie.deleteAll();
+    this.af.signOut().then(() => this.rout.navigate(['login']));
+    }
  /* sendMessage(){
 this.messages.push({
   user: 'Agri ceo',

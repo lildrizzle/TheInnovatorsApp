@@ -119,6 +119,7 @@ userIns(){
   
 }
 onLogout(){
+  this.cookie.deleteAll();
   this.af.signOut().then(() => this.rout.navigate(['login']));
   }
   getReg()
