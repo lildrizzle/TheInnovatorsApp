@@ -66,7 +66,7 @@ Row()
     this._apiService.getRow(data).subscribe((res:any) => {
      console.log("SUCCESSFUL ===", res);
    this.shows = res;
-   alert('SUCCESSes');
+   console.log('SUCCESSes');
    console.log("SUCCESSES ===", this.shows);
    
    },(error: any) => {
@@ -127,7 +127,7 @@ onLogout(){
     this._apiService.getReg().subscribe((res:any) => {
      console.log("display SUCCESS ===", res);
    this.projects = res;
-   alert('SUCCESS');
+   console.log('SUCCESS');
    
    },(error: any) => {
    

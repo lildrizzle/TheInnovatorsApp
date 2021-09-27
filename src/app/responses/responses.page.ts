@@ -18,6 +18,7 @@ storeUsers:any;
 
   ngOnInit() {
     this.responses();
+    if(this.storeUsers){alert("no responses yet!")}
   }
   onLogout(){
     this.cookie.deleteAll();

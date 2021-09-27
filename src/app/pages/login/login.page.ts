@@ -66,9 +66,12 @@ this.showToast("Verify your email address" );
  
 } 
  else {
+  
   this.cookie.set("sessionEmail","");
 this.cookie.set("sessionEmail",this.user.email);
+this.cookie.set("valid","");
 this.cookie.set("valid", this.store[0].role);
+
 
 if(this.store[0].role === "Developer"){
       
@@ -111,9 +114,7 @@ this.user.password = '';
 
 } 
   
-reload(){ 
-  window.location.reload(); 
-   } 
+
    async mailVerified (){ 
    
    this.afAuth.authState.subscribe(async user => 
@@ -133,11 +134,12 @@ routeG(){
 
   
   }
+  
   this._apiService.guards(data).subscribe((res: any) => {
     console.log("guard success ===",res);
     this.store= res;
     
-    
+  
   
   }
   
@@ -145,7 +147,8 @@ routeG(){
     alert('Ensure details are accurate or Email already exists');
     console.log("ERROR ===", error);
 
-      })
+      });
+    
 }
  
  validation(){ 
