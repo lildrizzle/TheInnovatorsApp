@@ -4,6 +4,7 @@ import { ApiService } from '../api.service';
 import { NavigationExtras, Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 
+
 @Component({
   selector: 'app-responses',
   templateUrl: './responses.page.html',
@@ -17,12 +18,18 @@ storeUsers:any;
   constructor(private _apiService: ApiService,private cookie: CookieService,private router: Router, private auths: AngularFireAuth) { }
 
   ngOnInit() {
-    this.responses();
-    if(this.storeUsers){alert("no responses yet!")}
+    this.responses().then(()=> {
+var keys = Object.keys(this.storeUsers);
+var len = keys.length;
+      if(len === 0){alert("No messages yet!")}
+    
+    })
+    
   }
   onLogout(){
+    if(confirm("Are you sure about Logging Out?")){
     this.cookie.deleteAll();
-    this.auths.signOut().then(() => this.router.navigate(['login']));
+    this.auths.signOut().then(() => this.router.navigate(['login']));}
     }
 //if(confirm("are u sure" + name)){ this.callFunction}
     method(){ this.getRecord().then(() => { this.delRec()}
@@ -33,6 +40,7 @@ storeUsers:any;
   
 
     } 
+   
  getRecord(){
    
   let data = {
@@ -93,16 +101,18 @@ storeUsers:any;
       
       email: this.cookie.get("sessionEmail"),
     }
+    return new Promise((resolve:any) => {
     this._apiService.responseView(data).subscribe((res:any) => {
      console.log("responses display SUCCESS ===", res);
    this.storeUsers = res;
    console.log("storeUsers", this.storeUsers);
    console.log('responses display SUCCESS');
-   
+   resolve();
    },(error: any) => {
    
    console.log("ERROR ===", error);
-     })
+     });
+    });
    }
    goChat(index){
     let navigatationExtras: NavigationExtras ={

@@ -49,7 +49,8 @@
     
     <ion-item transparent>
     <ion-icon name="mail"></ion-icon>
-    <ion-input type="text" value=""placeholder="Email Address" [(ngModel)]="user.email" required></ion-input>
+    <ion-input type="email" name="email" #email="ngModel" placeholder="Email Address" [(ngModel)]="user.email" [email]="true" required></ion-input>
+    <div *ngIf="email.errors?.email"></div>
     </ion-item>
 
     <ion-item transparent>
@@ -59,7 +60,7 @@
 
       <ion-item>
         <ion-label position="stacked" > Your Position: </ion-label>
-   <ion-select placeholder="Client/App Seeker" [(ngModel)]="user.role">
+   <ion-select placeholder="Client/App Seeker" [(ngModel)]="user.role" required>
      <ion-select-option value="Client" >
        Client/App Seeker
      </ion-select-option>
@@ -74,7 +75,7 @@
   </ion-list>
 
   <div linespace></div>
-  <ion-button type="submit" size="medium" fill="solid" expand="block" color="tertiary"  (click)="reg(user)" (click)="register(user)">SIGN UP</ion-button>
+  <ion-button type="submit" size="medium" fill="solid" expand="block" color="tertiary"   (click)="register(user)" >SIGN UP</ion-button>
   <ion-button type="button" size="medium" fill="outline" expand="block" color="tertiary" href= "/login">LOGIN</ion-button>
 
   <div linespace></div>

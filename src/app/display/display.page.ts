@@ -119,12 +119,16 @@ userIns(){
   
 }
 onLogout(){
+  if(confirm("Are you sure about Logging Out?")){
   this.cookie.deleteAll();
-  this.af.signOut().then(() => this.rout.navigate(['login']));
+  this.af.signOut().then(() => this.rout.navigate(['login']));}
   }
   getReg()
   {
-    this._apiService.getReg().subscribe((res:any) => {
+    let datas = {
+   email: this.cookie.get("sessionEmail"),
+    }
+    this._apiService.getReg(datas).subscribe((res:any) => {
      console.log("display SUCCESS ===", res);
    this.projects = res;
    console.log('SUCCESS');

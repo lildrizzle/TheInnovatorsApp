@@ -36,8 +36,9 @@ this.getPro();
     
   }
   onLogout(){
+    if(confirm("Are you sure about Logging Out?")){
     this.cookie.deleteAll();
-    this.af.signOut().then(() => this.rout.navigate(['login']));
+    this.af.signOut().then(() => this.rout.navigate(['login']));}
     }
   getPro()
   {

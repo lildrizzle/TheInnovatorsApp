@@ -31,7 +31,12 @@ export class UsersPage implements OnInit{
   
 
   ngOnInit() {
-  this.delete(); this.getUsers();
+  this.delete(); this.getUsers().then(()=> {
+    var keyss = Object.keys(this.printUsers);
+var lenn = keyss.length;
+      if(lenn === 0){alert("No interests yet!")}
+    
+  })
   
   
 }
@@ -91,8 +96,10 @@ export class UsersPage implements OnInit{
    );
  });
  }
-onLogout(){
-  this.af.signOut().then(() => this.router.navigate(['login']));
+ onLogout(){
+  if(confirm("Are you sure about Logging Out?")){
+  this.cookie.deleteAll();
+  this.af.signOut().then(() => this.router.navigate(['login']));}
   }
   delete(){
     this._apiService.deleteUser().subscribe((res:any) => {
@@ -115,16 +122,18 @@ onLogout(){
       
       email: this.cookie.get("sessionEmail"),
     }
+    return new Promise((resolve:any) => {
     this._apiService.getUser(data).subscribe((res:any) => {
      console.log("users display SUCCESS ===", res);
    this.printUsers = res;
    console.log("printUsers", this.printUsers);
    
-   
+   resolve();
    },(error: any) => {
    
    console.log("ERROR ===", error);
-     })
+     });
+    });
    }
   
   

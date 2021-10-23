@@ -62,11 +62,13 @@
         <ion-textarea type="text" value="" [(ngModel)]="info.projDes" required></ion-textarea>
         </ion-item>
     
-        <ion-item>
+        <ion-item >
     
-          <ion-label position="floating">the desired project delivery date: </ion-label>
+          <ion-label position="floating">Project Delivery Date: </ion-label>
             
-          <ion-datetime [(ngModel)]="info.delDate" required></ion-datetime>
+        
+          <ion-datetime displayFormat="YYYY/MM/DD" [min]="mini" max="2023-12-09" [(ngModel)]="info.delDate" required></ion-datetime>
+         
           </ion-item>
           <ion-item>
     
@@ -74,7 +76,7 @@
           <br>
             <ion-input type = "file" name ="file" (input)="uploadImage($event)" accept=".png,.jpg,.jpeg,.gif"></ion-input>
 <img [src]="downloadableURL" onerror="this.onerror=null;this.src='assets/icon/noimage.PNG';" width="100px" height=100px/>
-{{downloadableURL}}
+
             </ion-item>
 
   </ion-list>

@@ -25,8 +25,9 @@ export class HomePage implements OnInit {
   }
   
   onLogout(){
+    if(confirm("Are you sure about Logging Out?")){
     this.cookie.deleteAll();
-    this.auth.signOut().then(() => this.router.navigate(['login']));
+    this.auth.signOut().then(() => this.router.navigate(['login']));}
     }
   
 }

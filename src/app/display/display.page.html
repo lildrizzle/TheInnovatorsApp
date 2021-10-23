@@ -62,7 +62,7 @@
             <ion-item  >
               <ion-label position="stacked" > project delivery date: </ion-label>
         
-              <ion-textarea  readonly value="{{project.delDate}}" ></ion-textarea>
+              <ion-textarea  readonly value="{{project.delDate | date: 'fullDate'}}" ></ion-textarea>
               </ion-item>
               <ion-item  >
                 <ion-label position="stacked" > Uploaded images: </ion-label>

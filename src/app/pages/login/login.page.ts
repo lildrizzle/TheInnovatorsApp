@@ -58,14 +58,11 @@ async login(user :User ){
 await this.afAuth.signInWithEmailAndPassword( user.email , user.password ). then( data => console.log( data)); 
 
 this.val = true;
- if(!this.emailVer){ 
+ if(true){ 
   
-  this.user.password = '';
-this.showToast("Verify your email address" ); 
-
+await this.routeG();
  
-} 
- else {
+
   
   this.cookie.set("sessionEmail","");
 this.cookie.set("sessionEmail",this.user.email);
@@ -85,6 +82,8 @@ if(this.store[0].role === "Developer"){
   
 
  }
+   
+ 
  }catch(e){ 
  
  if (e.code === "auth/invalid-email") 
@@ -134,13 +133,13 @@ routeG(){
 
   
   }
-  
+  return new Promise((resolve:any) => {
   this._apiService.guards(data).subscribe((res: any) => {
     console.log("guard success ===",res);
     this.store= res;
     
   
-  
+  resolve();
   }
   
   ,(error: any) => {
@@ -148,7 +147,7 @@ routeG(){
     console.log("ERROR ===", error);
 
       });
-    
+    });
 }
  
  validation(){ 

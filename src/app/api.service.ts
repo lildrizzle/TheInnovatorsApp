@@ -10,7 +10,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class ApiService {
 headers: HttpHeaders;
-
+//root: String = "https://busanahighschool.co.za/";
+root: String= "http://localhost/";
   constructor(
     public  http: HttpClient, private afAuth: AngularFireAuth
   ){
@@ -28,85 +29,85 @@ headers: HttpHeaders;
      }
   
   reg(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/create.php',data);
+    return this.http.post(this.root+'backend/create.php',data);
    
   
   }
   createReq(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/createReq.php',data);
+    return this.http.post(this.root+'backend/createReq.php',data);
   }
   
   insertUser(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/userInsert.php',data);
+    return this.http.post(this.root+'backend/userInsert.php',data);
   }
   chatInsert(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/chatInsert.php',data);
+    return this.http.post(this.root+'backend/chatInsert.php',data);
   }
   chatInserte(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/chatInserts.php',data);
+    return this.http.post(this.root+'backend/chatInserts.php',data);
   }
   updates(data){
-     return this.http.put('http://localhost/TheInnovatorsApp/backend/update.php',data);
+     return this.http.put(this.root+'backend/update.php',data);
   }
   update1(data){
-    return this.http.put('http://localhost/TheInnovatorsApp/backend/update1.php',data);
+    return this.http.put(this.root+'backend/update1.php',data);
  }
  update2(data){
-  return this.http.put('http://localhost/TheInnovatorsApp/backend/update2.php',data);
+  return this.http.put(this.root+'backend/update2.php',data);
 }
 update3(data){
-  return this.http.put('http://localhost/TheInnovatorsApp/backend/update3.php',data);
+  return this.http.put(this.root+'backend/update3.php',data);
 }
 update4(data){
-  return this.http.put('http://localhost/TheInnovatorsApp/backend/update4.php',data);
+  return this.http.put(this.root+'backend/update4.php',data);
 }
-  getReg(){
-    return this.http.get('http://localhost/TheInnovatorsApp/backend/getReg.php');
+  getReg(datas){
+    return this.http.get(this.root+'backend/getReg.php',datas);
   }
   getUser(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/getUser.php', data);
+    return this.http.post(this.root+'backend/getUser.php', data);
   }
   getRec(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/getRec.php', data);
+    return this.http.post(this.root+'backend/getRec.php', data);
   }
   getResRec(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/getResRec.php', data);
+    return this.http.post(this.root+'backend/.php', data);
   }
   guards(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/guard.php', data);
+    return this.http.post(this.root+'backend/guard.php', data);
   }
   getProfile(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/getProfile.php', data);
+    return this.http.post(this.root+'backend/getProfile.php', data);
   }
   getRow(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/getRow.php', data);
+    return this.http.post(this.root+'backend/getRow.php', data);
    
   }
   
   getChat(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/getChat.php', data);
+    return this.http.post(this.root+'backend/getChat.php', data);
    
   }
   getChate(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/getChats.php', data);
+    return this.http.post(this.root+'backend/getChats.php', data);
    
   }
   viewChat(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/viewChat.php', data);
+    return this.http.post(this.root+'backend/viewChat.php', data);
    
   }
   
   deleteUser(){
-    return this.http.delete('http://localhost/TheInnovatorsApp/backend/deleteUser.php');
+    return this.http.delete(this.root+'backend/deleteUser.php');
   }
   deleteRecord(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/deleteRec.php',data);
+    return this.http.post(this.root+'backend/deleteRec.php',data);
   }
   deleteResRecord(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/delResRec.php',data);
+    return this.http.post(this.root+'backend/delResRec.php',data);
   }
   responseView(data){
-    return this.http.post('http://localhost/TheInnovatorsApp/backend/response.php', data);
+    return this.http.post(this.root+'backend/response.php', data);
 
   }
 }

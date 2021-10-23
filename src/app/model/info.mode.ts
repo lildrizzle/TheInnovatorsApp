@@ -8,4 +8,5 @@ export interface Info{
     delDate: any;
     img_url :any;
     curEmail:any;
+    mini:any ;
 }

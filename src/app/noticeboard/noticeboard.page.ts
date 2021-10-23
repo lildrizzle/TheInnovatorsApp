@@ -9,6 +9,8 @@ import { Info } from '../model/info.mode';
 
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import { CookieService } from 'ngx-cookie-service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-noticeboard',
@@ -17,22 +19,29 @@ import 'firebase/auth';
 })
 export class NoticeboardPage implements OnInit {
 info={} as Info;
+mini :string;
+myDate = new Date();
 val:any;
 basePath ='/images';
 task: AngularFireUploadTask;
  downloadableURL = "";
- 
-  constructor(private router: Router,
+
+  constructor(private datePipe: DatePipe,private router: Router,
     private toast: ToastController,
     private fAuth: AngularFireAuth,
     private load: LoadingController,
     private http: HttpClient,
-    public _apiService:ApiService,private af: AngularFireStorage) { }
+    public _apiService:ApiService,private af: AngularFireStorage,private cookie: CookieService) { this.mini= this.datePipe.transform(this.myDate, 'yyyy-MM-dd');}
 
 
   ngOnInit() {
   }
 
+  onLogout(){
+    if(confirm("Are you sure about Logging Out?")){
+    this.cookie.deleteAll();
+    this.fAuth.signOut().then(() => this.router.navigate(['login']));}
+    }
   async uploadImage(event){
     const file = event.target.files[0];
     if(file){
